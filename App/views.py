@@ -8,9 +8,14 @@ from werkzeug import exceptions
 views = Blueprint('views', __name__)
 
 
-@shortened.route('/')
+@views.route('/')
 def home():
     return render_template('home.html', title ='home')
+
+@views.route('/new_link', methods = ['POST'])
+def new_link():
+    url = request.form.get('url')
+    
 
 
 
