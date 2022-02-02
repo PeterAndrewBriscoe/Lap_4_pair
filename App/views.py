@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, jsonify
 from . import db
 import json
 from werkzeug import exceptions
+from .models import Urls
 
 
 
@@ -15,7 +16,12 @@ def home():
 @views.route('/new_link', methods = ['POST'])
 def new_link():
     url = request.form.get('url')
-    
+    link = Urls(url=url)
+    db.session.add(link)
+    db.session.commit()
+
+    return render_template('new_link.html', new_link = link.shortened_url, url=link.url)
+
 
 
 
