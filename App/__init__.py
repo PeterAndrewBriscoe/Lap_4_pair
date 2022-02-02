@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from .views import views
 
 
 
@@ -15,6 +16,8 @@ def create_app():
     db.init_app(app)
 
     create_database(app)
+
+    app.register_blueprint(views)
 
     return app
 

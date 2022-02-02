@@ -8,7 +8,7 @@ from werkzeug import exceptions
 views = Blueprint('views', __name__)
 
 
-@views.route('/')
+@shortened.route('/')
 def home():
     return render_template('home.html', title ='home')
 
