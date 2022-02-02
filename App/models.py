@@ -12,7 +12,7 @@ class Urls(db.Model):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.shortened_url = self.
+        self.shortened_url = self.shortner()
 
     def shortener(self):
         char = string.ascii_letters + string.digits
