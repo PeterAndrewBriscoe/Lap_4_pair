@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% block head %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    {% endblock %}
-</head>
-<body>
-    <nav>
-        <a href="/">Home</a>
-    </nav>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <footer>
-        &copy; Peter and Talha
-    </footer>
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+<h1>{% block title %} Hello there, and welcome to Talha's url shortener {% endblock %}</h1>
+<h2>Click <a href="/shortener">here</a> to produce a shortened url</h2>
