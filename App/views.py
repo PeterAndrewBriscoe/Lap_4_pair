@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, redirect, render_template, request, flash, jsonify
 from . import db
 import json
 from werkzeug import exceptions
@@ -22,7 +22,10 @@ def new_link():
 
     return render_template('new_link.html', new_link = link.shortened_url, url=link.url)
 
-
+@views.route('/<shortened_url>')
+def to_new_link():
+    link = Url.query.filter_by(shortened_url=shortened_url).first_or_404()
+    return redirect(link.url)
 
 
 
