@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<h1 class="title">Url Shortener</h1>
+<form  action="/shortener" method="POST">
+    <input type="url" name="original_url" id="original_url">
+    <span id="result">{{result}}</span>
+    <input type="submit" id="predict-submit" name="submit" value="Submit" method="POST"  >
+</form>
 {% endblock %}
